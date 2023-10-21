@@ -1,0 +1,8 @@
+repos:
+- repo: local
+  hooks:
+  - id: generate-commit-message
+    name: Generate Commit Message
+    entry: bash -c "export VIRTUAL_ENV=$(poetry env info --path) && $VIRTUAL_ENV/bin/python script.py"
+    language: python
+    stages: [commit-msg]
