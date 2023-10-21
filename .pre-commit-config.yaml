@@ -3,6 +3,7 @@ repos:
   hooks:
   - id: generate-commit-message
     name: Generate Commit Message
-    entry: bash -c "export VIRTUAL_ENV=$(poetry env info --path) && $VIRTUAL_ENV/bin/python script.py"
+    entry: ./script.sh
     language: python
-    stages: [commit-msg]
+    additional_dependencies: ['openai==0.28.1', 'python-dotenv==0.19.0']
+    stages: [prepare-commit-msg]
